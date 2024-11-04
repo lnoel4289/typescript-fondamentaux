@@ -11,7 +11,8 @@ init()
 // 🐶 Déclare un type `pinType` qui permet d'avoir un number ou string
 // affecte ce type à la variable `pin`
 
-let pin: number | string // ⛏️ remplace cette declaration
+type pinType = number | string
+let pin: pinType
 pin = 0
 displayText(`Le pin est ${pin}`)
 pin = '10'
@@ -20,15 +21,16 @@ displayText(`Le pin est ${pin}`)
 // 🐶 Déclare un type `primitives` qui permet d'avoir tous les types primitif number | boolean | string
 
 // ⛏️ remplace `any` par le type `primitives` et affecte une bonne valeur
-let prim: any = {}
+type primitives = number | boolean | string
+let prim: primitives = true
 displayText(`prim vaut  ${prim}`)
 
 // 🐶 modifie le type `primitivesNullUndefined` pour que les lignes suivantes compilent
-type primitivesNullUndefined = number | boolean | string
+type primitivesNullUndefined = number | boolean | string | undefined | null
 
 // ⛏️ décommente le code ci-dessous et fait en sorte que la compilation fonctionne en modifiant `primitivesNullUndefined`
-// let prim2: primitivesNullUndefined
-// displayText(`prim2 vaut  ${prim2}`)
+let prim2: primitivesNullUndefined
+displayText(`prim2 vaut  ${prim2}`)
 
 // 🐶 Modifie le type `Person` avec les propiétés
 // - name de type string
@@ -38,7 +40,15 @@ type primitivesNullUndefined = number | boolean | string
 // - params un object non defini
 // - payload peut avoir n'importe quel type
 
-type Person = any
+type Person = {
+  name: string
+  age: number
+  isActive: boolean
+  roles: string[]
+  params: object
+  payload: any
+  friend: Person | undefined
+}
 
 const person: Person = {
   name: 'John',
@@ -47,6 +57,7 @@ const person: Person = {
   roles: ['admin'],
   params: {id: '50'},
   payload: undefined,
+  friend: undefined,
 }
 
 displayText(
@@ -54,6 +65,10 @@ displayText(
 )
 
 // 🐶 N'oublie pas l'exercice bonus
+
+displayText(
+  `${person.name} a pour ami: ${person.friend ? person.friend.name : 'aucun'}`,
+)
 
 /*
 eslint

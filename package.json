@@ -76,9 +76,8 @@
     ]
   },
   "repository": {
-    "type": "git",
     "url": "git+https://github.com/mikecodeur/typescript-fondamentaux.git"
-  },
+  } ,
   "bugs": {
     "url": "https://github.com/mikecodeur/typescript-fondamentaux/issues"
   },

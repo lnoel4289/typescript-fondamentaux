@@ -14,17 +14,27 @@ init()
 // 🤖 affiche le resultat de cette fonction dans le navigateur grace à
 // `displayText(`${sayHello('Mike')}`)`
 
-function sayHello() {
-  return ``
+function sayHello(name: string) {
+  return `Hello ${name}`
 }
 // ⛏️ Décommente pour afficher le résultat de la fonction à l'écran
-// displayText(`${sayHello('Mike')}`)
+displayText(`${sayHello('Mike')}`)
 
 // 🐶 Créer une fonction `sum` qui retourne la somme de 2 nombres passés en argument
 // Affiche le resultat à l'écran avec `displayText`
-function sum() {}
+function sum(a: number, b: number) {
+  return `La somme de ${a} et ${b} vaut ${a + b} `
+}
+
+displayText(`${sum(2, 3)} `)
 
 // 🐶 Créer une fonction `printGender` qui retourne 'Monsieur' ou 'Madame' en fonction d'un argument `isMale`
-function printGender() {
-  return 'Monsieur'
+function printGender(isMale: boolean) {
+  if (isMale) {
+    return 'Monsieur'
+  }
+  return 'Madame'
 }
+
+displayText(`Bonjour ${printGender(true)}`)
+displayText(`Bonjour ${printGender(false)}`)
